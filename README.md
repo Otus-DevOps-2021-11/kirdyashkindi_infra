@@ -28,3 +28,24 @@ kirdyashkindi Infra repository
     someinternalhost_IP = 10.128.0.5
 
 * Для использования сертификата от Let's Encrypt при подключении к админке pritunl, внёс имя `https://51-250-4-53.sslip.io/` в Settings -> Let's Encrypt Domain админки.
+
+## Лекция 6. Деплой тестового приложения
+
+Скрипты install_ruby.sh, install_mongodb.sh и deploy.sh находятся в подпапке HW6
+
+testapp_IP = 62.84.126.44
+testapp_port = 9292
+
+### Дополнительное задание:
+
+Файл startup-script.yaml, который используется при созжании хоста через cli, расположен в подпапке HW6.
+Команда имеет следующий вид:
+`yc compute instance create \
+    --name reddit-app \
+    --hostname reddit-app \
+    --memory=4 \
+    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \ --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+    --metadata serial-port-enable=1 \
+    --metadata-from-file user-data=/PATH_TO_LOCAL_REPO/kirdyashkindi_infra/HW6/startup-script.yaml`, где:
+
+PATH_TO_LOCAL_REPO - путь к скачанному репозиторию.
