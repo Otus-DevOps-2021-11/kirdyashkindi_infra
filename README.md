@@ -33,6 +33,9 @@ kirdyashkindi Infra repository
 
 Скрипты install_ruby.sh, install_mongodb.sh и deploy.sh находятся в подпапке HW6
 
+testapp_IP = 62.84.126.44
+testapp_port = 9292
+
 ### Дополнительное задание:
 
 Файл startup-script.yaml, который используется при созжании хоста через cli, расположен в подпапке HW6.
