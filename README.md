@@ -49,3 +49,17 @@ testapp_port = 9292
     --metadata-from-file user-data=/PATH_TO_LOCAL_REPO/kirdyashkindi_infra/HW6/startup-script.yaml`, где:
 
 PATH_TO_LOCAL_REPO - путь к скачанному репозиторию.
+
+## Лекция 7. Сборка образов VM при помощи Packer
+
+- Создан файл ubuntu16.json для сборки образа ВМ с установленными mongoDB и Ruby
+
+- Параметры folder_id, source_image_family, service_account_key_file задаются через переменные, указанные в файле variables.json
+
+### Построение bake-образа
+
+- Создан файл immutable.json, в который включен скрипт установки зависимостей приложения, копирования unit файла и включения службы сервера puma, что позволяет автоматически запустить приложение при включении ВМ.
+
+### Автоматизация создания ВМ
+
+- Сделан скрипт create-reddit-vm.sh, в котором передаются все необходимые для создания ВМ параметры.
