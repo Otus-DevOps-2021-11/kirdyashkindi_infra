@@ -4,6 +4,11 @@
   become: true
   tasks:
 
+  - name: Add APT key
+    apt_key:
+      id: EA312927
+      keyserver: keyserver.ubuntu.com
+
   - name: add mongodb repo to repo list
     ansible.builtin.apt_repository:
       repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse
@@ -13,6 +18,7 @@
     apt:
       name: mongodb-org
       state: present
+      allow_unauthenticated: yes
 
   - name: enable mongodb
     ansible.builtin.service:
