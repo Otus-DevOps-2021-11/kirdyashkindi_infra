@@ -4,8 +4,5 @@
   hosts: app
   become: true
 
-  vars:
-   db_host: 51.250.0.3
-
   roles:
     - app
