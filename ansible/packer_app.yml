@@ -1,0 +1,15 @@
+---
+- name: install ruby with dependencies
+  hosts: all
+  become: true
+  tasks:
+
+  - name: install ruby with dependencies
+    become: true
+    apt:
+      pkg:
+        - ruby-full
+        - ruby-bundler
+        - build-essential
+        - apt-transport-https
+        - ca-certificates
